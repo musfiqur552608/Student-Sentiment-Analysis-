@@ -1,0 +1,326 @@
+
+<!DOCTYPE html>
+<html lang='en' class=''>
+
+<head>
+ 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="../static/styling.css">
+  <script src="https://kit.fontawesome.com/f75621122b.js"></script>
+  <!--<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">-->
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  
+  <link rel='stylesheet' type='text/css' href='../static/styling.css'>
+  <style class="cp-pen-styles">
+    /*digital colors */
+    /* reset styles */
+    a,
+    a:hover {
+      color: initial;
+    }
+
+    .container {
+      margin: 2em auto 0 auto;
+    }
+
+    .nav-tabs {
+      border: none;
+    }
+
+    .nav-tabs>li>a {
+      padding: 0;
+      border: none;
+      background: none;
+    }
+
+    .nav-tabs>li.active>a,
+    .nav-tabs>li.active>a:focus,
+    .nav-tabs>li.active>a:hover {
+      border: none;
+      background: none;
+    }
+
+    .nav-tabs>li>a:hover {
+      background: none;
+      border: none;
+    }
+
+    .scrtabs-tabs-fixed-container {
+      height: initial;
+    }
+
+    .scrtabs-tabs-fixed-container ul.nav-tabs {
+      height: auto;
+    }
+
+    .scrtabs-tabs-fixed-container ul.nav-tabs>li {
+      white-space: initial;
+    }
+
+    .glyphicon {
+      font-family: 'icomoon';
+    }
+
+    .glyphicon-chevron-left:before {
+      content: "\e91c";
+    }
+
+    .glyphicon-chevron-right:before {
+      content: "\e91b";
+    }
+
+    /* end of reset styles */
+    body {
+      color: #6d747e;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.5em;
+    }
+
+    .noTop {
+      margin-top: 0;
+    }
+
+    .tall .nav-tabs li,
+    .tall .scrtabs-tab-container {
+      height: 125px;
+    }
+
+    .tall .nav-tabs li .scrtabs-tab-scroll-arrow,
+    .tall .scrtabs-tab-container .scrtabs-tab-scroll-arrow {
+      height: 123px;
+      padding: 0;
+      margin: 0;
+      border-top: 1px solid #ddd;
+    }
+
+    .tall .nav-tabs li .scrtabs-tab-scroll-arrow .glyphicon,
+    .tall .scrtabs-tab-container .scrtabs-tab-scroll-arrow .glyphicon {
+      margin-top: 50px;
+    }
+
+    .tall .tab-content {
+      height: calc(100vh - (125px + 4em));
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+
+    .tab-content {
+      margin: 0.7em 0;
+    }
+
+    .tab-content h2 {
+      color: #80cc28;
+      margin-bottom: 30px;
+    }
+
+    .tab-content h3 {
+      color: #434951;
+      font-weight: 600;
+    }
+
+    .nav-tabs>li.active {
+      cursor: default;
+      background: #fff;
+      color: #434951;
+      border: 1px solid #ddd;
+      border-top: 5px solid #80cc28;
+      border-bottom-color: transparent;
+    }
+
+    .nav-tabs>li {
+      padding: 1em 0.5em 0.5em;
+      border: 1px solid #fff;
+      border-top: 5px solid transparent;
+      border-radius: 0;
+      border-bottom-color: #ddd;
+      margin: 0;
+      min-width: 125px;
+      font-size: 16px;
+      max-width: 200px;
+      white-space: normal;
+      background: #f2f2f2;
+      transition: border-top ease-out 0.3s, background ease-out 0.3s;
+    }
+
+    .nav-tabs>li a {
+      color: #a8adb4;
+      transition: color ease-out 0.3s;
+    }
+
+    .nav-tabs>li:hover {
+      border-top: 5px solid #a8adb4;
+    }
+
+    .nav-tabs>li:hover a {
+      color: #6d747e;
+    }
+
+    .nav>li>a {
+      display: block;
+      position: relative;
+      width: 100%;
+      height: 100%;
+      line-height: 1.2em;
+      margin: 0;
+    }
+
+    .nav-tabs input {
+      position: relative;
+    }
+
+    .radiobtn input {
+      display: none;
+    }
+
+    .radiobtn>input+.icon {
+      background: url("https://www.bts.com/images/svg/icons/digital-icons/radio-button-empty.svg") no-repeat;
+      width: 25px;
+      height: 25px;
+    }
+
+    .radiobtn>input:checked+.icon {
+      background: url("https://www.bts.com/images/svg/icons/digital-icons/radio-button-selected.svg") no-repeat;
+      width: 25px;
+      height: 25px;
+    }
+
+    .scrtabs-tab-scroll-arrow {
+      color: #0ab9f0;
+      text-align: center;
+      background: #fff;
+      transition: background ease-out 0.3s, color ease-out 0.3s;
+    }
+
+    .scrtabs-tab-scroll-arrow:hover {
+      background: #0ab9f0;
+      color: #fff;
+    }
+    #sub{
+      margin:20px;
+      padding: 5px;
+      background-color: skyblue;
+    }
+  </style>
+  <title>Sentiment</title>
+
+</head>
+
+<body>
+  <div class="container tall">
+     <div>
+       <h1 style="text-align: center;margin-bottom:50px;">Sentiment Analysis</h1>
+     </div>
+      <!-----------------Sentiment Analysis Code Start Here-------------------------->
+      <div role="tabpanel" class="tab-pane" id="tab2">
+        <div class="row">
+          <div class="col-lg-12">
+            <h2>Enter a docx file to get the Sentiment</h2>
+          </div>
+        </div>
+
+        <div class="row">
+
+          <div class="col-md-6">
+            <div class="input-group">
+              <form action="/sentiment" id="form" method="post" enctype="multipart/form-data">
+                <!-- <input name="text" class="form-control" id="tex" placeholder="Enter text here..."> -->
+                <div class="mb-3">
+                  <label for="title" class="form-label">Enter a docx file:</label><br />
+                  {% csrf_token %}
+                  <!-- here we get the file -->
+                  <input type = "file" id="file" name = "filename" accept=".docx">
+                  <br><br><h4>OR</h4>
+                  <label for="title" class="form-label">Enter text here:</label><br />
+                  <div class="form-floating">
+                    <!-- here we get the text -->
+                    <textarea class="form-control" name="rawtext" placeholder="Leave a comment here" id="floatingTextarea2"
+                      style="height: 200px; width: 550px;"></textarea>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary mt-2">Submit</button>
+              </form>
+            </div>
+
+        </div>
+          
+        <div class="col-md-6">
+          <div class="col-md-3">
+            <!-- Here set the input text -->
+            <h1>Given Text</h1>
+            <div class="alert alert-primary" role="alert" style="width: 400px; height:100px;">
+              
+              {{ mytext }}
+            
+            </div>
+          </div>
+          <div class="col-md-3">
+            <!-- Here set the predicted sentiment -->
+            <h1>Sentiment</h1>
+            <div class="alert alert-primary" role="alert">
+              
+              {{ sentiment }}
+             
+            </div>
+          </div>
+          <div class="col-md-3">
+            <!-- This our model accuracy -->
+            <h1>Accuracy</h1>
+            <div class="alert alert-primary" role="alert">
+              
+              {{ "78%" }}
+             
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      <br>
+      <br>
+      <!-------------Sentiment Analysis Code End------------------------->
+      <div>
+      </div>
+    </div>
+
+  </div>
+
+  <!--Exception Handling-->
+  <script>
+    document.getElementById("form").addEventListener('submit', error)
+    function error(event){
+      const file = document.getElementById("file").value  
+      const text = document.getElementById("floatingTextarea2").value
+      if(text==''&& file==''){
+        event.preventDefault()
+        alert('Sorry...! \nYou must choose an option between file or text.')
+      }
+      else if(text && file ){
+        event.preventDefault()
+        alert('Sorry...! \nYou should choose only one option between file or text.')
+      }
+    }
+  </script>
+  <script
+    src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'>
+  </script>
+  <script src='https://code.jquery.com/jquery-1.12.0.min.js'></script>
+  <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'></script>
+  <script
+    src='https://www.jqueryscript.net/demo/jQuery-Plugin-To-Create-Responsive-Scrolling-Bootstrap-Tabs/jquery.scrolling-tabs.js'>
+  </script>
+  <script>
+    $('.nav-tabs').scrollingTabs({
+      enableSwiping: true
+    });
+
+    $('.nav-tabs a').click(function () {
+      $(".tab-content").animate({
+        scrollTop: 0
+      }, 600);
+    });
+  </script>
+</body>
+
+</html>
