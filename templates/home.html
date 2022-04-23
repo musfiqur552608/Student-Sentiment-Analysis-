@@ -265,13 +265,19 @@
              
             </div>
           </div>
+          <br><br>
           <div class="col-md-3">
-            <!-- This our model accuracy -->
-            <h1>Accuracy</h1>
-            <div class="alert alert-primary" role="alert">
-              
-              {{ "78%" }}
-             
+            <div class="input-group">
+              <form action="/train" id="form1" method="post" enctype="multipart/form-data">
+                <!-- <input name="text" class="form-control" id="tex" placeholder="Enter text here..."> -->
+                <div class="mb-3">
+                  <label for="title" class="form-label"><h3>Enter a training file:</h3></label><br />
+                  {% csrf_token %}
+                  <!-- here we get the file -->
+                  <input type = "file" id="train" name = "train" accept=".csv">
+                </div>
+                <button type="submit" class="btn btn-primary mt-2">Train</button>
+              </form>
             </div>
           </div>
           
